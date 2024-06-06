@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const router = require('./routes/User.route');
+const userRouter = require('./routes/User.route');
+const authRouter = require('./routes/Auth.route');
 
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO).then(()=>{
     console.log("connected to mongodb");
@@ -24,4 +26,5 @@ app.listen(3000, () => {
 //     });
 // })
 
-app.use("/test", router)
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
