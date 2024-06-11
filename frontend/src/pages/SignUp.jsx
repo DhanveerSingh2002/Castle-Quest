@@ -57,7 +57,7 @@ const SignUp = () => {
           <span className='text-teal-300 opacity-80 hover:opacity-100'>Sign in</span>
         </Link>
       </div>
-      {error && <p className='text-teal-400 mt-5'>{error}</p>}
+      {error && <p className='text-red-600 mt-5'>{error}</p>}
     </div>
   )
 }
