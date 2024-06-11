@@ -6,5 +6,5 @@ const errorHandler = (statusCode, message) => {
 }
 
 module.exports = {
-    errorHandler
+    errorHandler,
 }
