@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { app } from "../FireBase";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
-import {userUpdateStart, userUpdateSuccess, userUpdateFailure} from '../redux/user/userSlice';
+import {userUpdateStart, userUpdateSuccess, userUpdateFailure, userDeleteFailure, userDeleteSuccess, userDeleteStart, userSignOutFailure, userSignOutStart, userSignOutSuccess} from '../redux/user/userSlice';
 import { useDispatch } from "react-redux";
 
 const Profile = () => {
@@ -80,6 +80,40 @@ const Profile = () => {
       }
   }
 
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(userDeleteStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if(data.success === false)
+      {
+        dispatch(userDeleteFailure(data.message));
+        return;
+      }
+      dispatch(userDeleteSuccess(data));
+    } catch (error) {
+      dispatch(userDeleteFailure(error.message));
+    }
+  };
+
+  const handleSignOutUser = async () => {
+    try {
+      dispatch(userSignOutStart());
+      const res = await fetch('/api/auth/sign-out');
+      const data = await res.json();
+      if(data.success === false)
+      {
+        dispatch(userSignOutFailure(data.message));
+        return ;
+      }
+      dispatch(userSignOutSuccess(data));
+    } catch (error) {
+      dispatch(userSignOutFailure(error.message));
+    }
+  };
+
   return (
     <div className="max-w-lg mx-auto p-2 sm:p-0">
       <h1 className='text-center text-4xl font-semibold text-teal-400 mt-8 mb-6'>Profile</h1>
@@ -103,8 +137,8 @@ const Profile = () => {
         <button disabled={loading} className="border-transparent text-teal-400 text-xl bg-cyan-950 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out bg-opacity-50 p-3">{loading ? "Please Wait..." : `Edit ✎`}</button>
       </form>
       <div className="flex mt-3 justify-between">
-        <span className="text-red-500 cursor-pointer hover:underline transition-all duration-500">Delete Account</span>
-        <span className="text-red-500 cursor-pointer hover:underline transition-all duration-500">Sign out</span>
+        <span onClick={handleDeleteUser} className="text-red-500 cursor-pointer hover:underline transition-all duration-500">Delete Account</span>
+        <span onClick={handleSignOutUser} className="text-red-500 cursor-pointer hover:underline transition-all duration-500">Sign out</span>
       </div>
       <p className="text-red-500 mt-5">{error?error:''}</p>
       <p className="text-green-500 mt-5 self-center text-lg">{updateSuccess?"Profile updated successfully.":''}</p>                                 
