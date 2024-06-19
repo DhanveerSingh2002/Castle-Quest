@@ -1,5 +1,5 @@
 const User = require("../models/User.model");
-const { errorHandler } = require("../utils/error")
+const { errorHandler } = require("../utils/error");
 const bcryptjs = require("bcryptjs");
 
 const test = (req, res) => {
