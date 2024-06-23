@@ -4,6 +4,7 @@ import { app } from "../FireBase";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import {userUpdateStart, userUpdateSuccess, userUpdateFailure, userDeleteFailure, userDeleteSuccess, userDeleteStart, userSignOutFailure, userSignOutStart, userSignOutSuccess} from '../redux/user/userSlice';
 import { useDispatch } from "react-redux";
+import {Link} from 'react-router-dom';
 
 const Profile = () => {
 
@@ -116,8 +117,8 @@ const Profile = () => {
 
   return (
     <div className="max-w-lg mx-auto p-2 sm:p-0">
-      <h1 className='text-center text-4xl font-semibold text-teal-400 mt-8 mb-6'>Profile</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <h1 className='text-center text-4xl font-semibold text-teal-400 my-3'>Profile</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input onChange={(e)=>setFile(e.target.files[0])} type="file" ref={fileRef} className="hidden" accept="image/*"/>
         <img onClick={()=>fileRef.current.click()} className="h-28 w-28 rounded-full object-cover cursor-pointer mt-2 self-center" src={formData.avatar || currentUser.avatar} alt="Profile Photo"/>
         <p className="self-center">
@@ -135,6 +136,7 @@ const Profile = () => {
         <input className='bg-[#080F22] text-teal-400 focus:outline-none p-3 rounded-lg' type="email" defaultValue={currentUser.email} id='email' placeholder='Email' onChange={handleChange}/>
         <input className='bg-[#080F22] text-teal-400 focus:outline-none rounded-lg p-3' type="password" id='password' placeholder='Password' onChange={handleChange}/>
         <button disabled={loading} className="border-transparent text-teal-400 text-xl bg-cyan-950 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out bg-opacity-50 p-3">{loading ? "Please Wait..." : `Edit ✎`}</button>
+        <Link to={'/create-listing'} className="text-center border-transparent text-teal-400 text-xl bg-emerald-900 bg-opacity-50 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out p-3">Create a Listing ✉</Link>
       </form>
       <div className="flex mt-3 justify-between">
         <span onClick={handleDeleteUser} className="text-red-500 cursor-pointer hover:underline transition-all duration-500">Delete Account</span>
