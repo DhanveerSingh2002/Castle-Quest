@@ -1,4 +1,5 @@
 const User = require("../models/User.model");
+const Listing = require("../models/listing.model");
 const { errorHandler } = require("../utils/error");
 const bcryptjs = require("bcryptjs");
 
@@ -52,8 +53,25 @@ const deleteUser = async (req, res, next) =>
     }
 }
 
+const getListings = async (req, res, next) => {
+    if(req.user.id === req.params.id)
+    {
+        try {
+            const listings = await Listing.find({userRef: req.params.id});
+            res.status(200).json(listings);
+        } catch (error) {
+            next(error);
+        }
+    }
+    else
+    {
+        return next(errorHandler(401, "You do not have permission to access this"));
+    }
+}
+
 module.exports = {
     test,
     updateUserInfo,
-    deleteUser
+    deleteUser,
+    getListings
 }
