@@ -229,7 +229,7 @@ const CreateListing = () => {
                         return i!== index;
                       })
                     });
-                  }} className='text-xl  border-transparent bg-red-900 bg-opacity-90 text-black rounded-lg hover:bg-black hover:text-red-700 hover:scale-110 duration-300 transition-all p-2 px-3'><i className="fa fa-trash" aria-hidden="true"></i></button>
+                  }} className='text-xl border-transparent bg-red-900 bg-opacity-90 text-black rounded-lg hover:bg-black hover:text-red-700 hover:scale-110 duration-300 transition-all p-2 px-3'><i className="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
               )
             })
