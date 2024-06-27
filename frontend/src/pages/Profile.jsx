@@ -197,7 +197,9 @@ const Profile = () => {
                 </Link>
                 <div className="flex flex-col gap-4">
                   <button onClick={()=>handleDeleteListing(listing._id)}><i title="Delete" className="fa fa-trash text-2xl border-transparent bg-red-800 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black text-center hover:text-red-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i></button>
-                  <button><i title="Edit" className="fa fa-pencil text-2xl border-transparent bg-blue-700 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black hover:text-blue-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i></button>
+                  <Link to={`/update-listing/${listing._id}`}>
+                    <button><i title="Edit" className="fa fa-pencil text-2xl border-transparent bg-green-700 cursor-pointer bg-opacity-70 text-black rounded-md hover:bg-black hover:text-green-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i></button>
+                  </Link>
                 </div>
               </div>
             )
