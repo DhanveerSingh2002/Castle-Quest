@@ -154,7 +154,7 @@ const Profile = () => {
         <input className='bg-[#080F21] text-teal-400 focus:outline-none rounded-lg p-3' type="text" defaultValue={currentUser.username} id='username' placeholder='Username' onChange={handleChange}/>
         <input className='bg-[#080F22] text-teal-400 focus:outline-none p-3 rounded-lg' type="email" defaultValue={currentUser.email} id='email' placeholder='Email' onChange={handleChange}/>
         <input className='bg-[#080F22] text-teal-400 focus:outline-none rounded-lg p-3' type="password" id='password' placeholder='Password' onChange={handleChange}/>
-        <button disabled={loading} className="border-transparent text-teal-400 text-xl bg-cyan-950 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out bg-opacity-50 p-3">{loading ? "Please Wait..." : `Edit ✎`}</button>
+        <button disabled={loading} className="border-transparent text-teal-400 text-xl bg-cyan-950 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out bg-opacity-50 p-3">{loading ? "Please Wait..." : `Update Profile ✎`}</button>
         <Link to={'/create-listing'} className="text-center border-transparent text-teal-400 text-xl bg-emerald-900 bg-opacity-50 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out p-3">Create a Listing ✉</Link>
       </form>
       <div className="flex mt-3 justify-between">
