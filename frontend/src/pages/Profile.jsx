@@ -134,6 +134,23 @@ const Profile = () => {
     }
   }
 
+  const handleDeleteListing = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if(data.success === false)
+      {
+        console.log(data.message);
+        return;
+      }
+      setUserListings((prev)=>prev.filter((listing) => listing._id !== listingId));
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   return (
     <div className="max-w-lg mx-auto p-2 sm:p-0">
       <h1 className='text-center text-4xl font-semibold text-teal-400 my-3'>Profile</h1>
@@ -179,8 +196,8 @@ const Profile = () => {
                   <p>{listing.name}</p>
                 </Link>
                 <div className="flex flex-col gap-4">
-                  <i title="Delete" className="fa fa-trash text-2xl border-transparent bg-red-800 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black text-center hover:text-red-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i>
-                  <i title="Edit" className="fa fa-pencil text-2xl border-transparent bg-blue-700 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black hover:text-blue-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i>
+                  <button onClick={()=>handleDeleteListing(listing._id)}><i title="Delete" className="fa fa-trash text-2xl border-transparent bg-red-800 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black text-center hover:text-red-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i></button>
+                  <button><i title="Edit" className="fa fa-pencil text-2xl border-transparent bg-blue-700 cursor-pointer bg-opacity-90 text-black rounded-md hover:bg-black hover:text-blue-700 hover:scale-110 duration-300 transition-all p-1 px-2"></i></button>
                 </div>
               </div>
             )
