@@ -189,10 +189,10 @@ const Profile = () => {
           userListings.map((listing) => {
             return (
               <div key={listing._id} className="flex items-center justify-between rounded-lg bg-[#080F22] p-6 gap-4 mt-5">
-                <Link to={`/listings/${listing._id}`} className="flex justify-between">
+                <Link to={`/listing/${listing._id}`} className="flex justify-between">
                   <img src={listing.imageURLs[0]} className="w-24 h-24 object-conatin rounded-lg" alt="Property Image" />
                 </Link>
-                <Link className="text-teal-400 text-lg flex-1" to={`/listings/${listing._id}`}>
+                <Link className="text-teal-400 text-lg flex-1" to={`/listing/${listing._id}`}>
                   <p>{listing.name}</p>
                 </Link>
                 <div className="flex flex-col gap-4">
