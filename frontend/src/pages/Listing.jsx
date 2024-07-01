@@ -74,8 +74,8 @@ const Listing = () => {
                 )}
                 <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
                     <p className='sm:text-3xl text-xl font-semibold text-teal-400'>
-                        {listing.name} - ₹{' '}
-                        {listing.offer ? <span><span className='line-through'>{listing.regularPrice.toLocaleString('en-IN')}</span> {listing.discountPrice.toLocaleString('en-IN')}</span> : listing.regularPrice.toLocaleString('en-IN')}
+                        <span className='font-bold'>{listing.name}</span>
+                        {listing.offer ? <span>  - ₹{' '} <span className='line-through'>{listing.regularPrice.toLocaleString('en-IN')}</span> {listing.discountPrice.toLocaleString('en-IN')}</span> :<span><span>  - ₹{' '}  </span>{listing.regularPrice.toLocaleString('en-IN')}</span>}
                         {listing.type === 'rent' && ' / month'}
                     </p>
                     <p className="flex items-center gap-2 text-gray-500 my-2 text-md">
@@ -92,8 +92,8 @@ const Listing = () => {
                             )
                         }
                     </div>
-                    <p className='text-teal-300 text-xl'><span className='text-teal-500 font-semibold text-2xl underline'>Description<i className='fa-solid fa-arrow-right text-xl'></i></span> {listing.description}</p>
-                    <ul className='flex gap-2 sm:gap-4 flex-wrap'>
+                    <p className='text-teal-300 text-xl mt-2'><span className='text-teal-500 font-semibold text-2xl underline'>Description<i className='fa-solid fa-arrow-right text-xl'></i></span> {listing.description}</p>
+                    <ul className='flex gap-2 sm:gap-4 flex-wrap mt-2'>
                         <li className='flex items-center gap-2 bg-black w-fit p-2 rounded-lg text-teal-400'>
                             <FaBed className='text-xl'/>
                             {
