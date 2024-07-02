@@ -53,7 +53,7 @@ const Listing = () => {
                     {listing.imageURLs.map((url) => {
                         return (
                             <SwiperSlide key={url}>
-                                <div className='h-[450px]' style={{background:`url(${url}) center no-repeat`, backgroundSize:"cover"}}></div>
+                                <div className='h-[550px]' style={{background:`url(${url}) center no-repeat`, backgroundSize:"contain"}}></div>
                             </SwiperSlide>
                         )
                     })}
@@ -72,7 +72,7 @@ const Listing = () => {
                         Link copied!
                     </p>
                 )}
-                <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
+                <div className='flex flex-col max-w-[834px] mx-auto p-3 my-7 gap-4'>
                     <p className='sm:text-3xl text-xl font-semibold text-teal-400'>
                         <span className='font-bold'>{listing.name}</span>
                         {listing.offer ? <span>  - ₹{' '} <span className='line-through'>{listing.regularPrice.toLocaleString('en-IN')}</span> {listing.discountPrice.toLocaleString('en-IN')}</span> :<span><span>  - ₹{' '}  </span>{listing.regularPrice.toLocaleString('en-IN')}</span>}

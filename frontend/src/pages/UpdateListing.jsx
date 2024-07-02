@@ -111,10 +111,21 @@ const UpdateListing = () => {
 
     if(e.target.id === "parking" || e.target.id === "furnished" || e.target.id === "offer")
     {
-      setFormData({
-        ...formData, 
-        [e.target.id]:!formData[e.target.id]
-      });
+      if (e.target.id === "offer" && !e.target.checked) 
+      {
+        setFormData({
+          ...formData,
+          offer: e.target.checked,
+          discountPrice: 0 
+        });
+      } 
+      else 
+      {
+        setFormData({
+          ...formData,
+          [e.target.id]: e.target.checked
+        });
+      }
     }
 
     if(e.target.type === "number" || e.target.type === "text" || e.target.type === "textarea")
@@ -134,7 +145,7 @@ const UpdateListing = () => {
         setError("Please upload atleast 1 image");
         return;
       }
-      if(formData.regularPrice < formData.discountPrice)
+      if(offer && formData.regularPrice < formData.discountPrice)
       {
         setError("Discount price must be less than regular price");
         return;
