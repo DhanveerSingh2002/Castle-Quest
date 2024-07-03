@@ -58,7 +58,7 @@ const Listing = () => {
                         )
                     })}
                 </Swiper>
-                <div className='fixed top-[13%] right-[3%] z-10 rounded-full w-12 h-12 flex justify-center items-center bg-gray-900 cursor-pointer'>
+                <div className='fixed top-[13%] right-[3%] z-10 rounded-full w-12 h-12 flex justify-center items-center bg-gray-800 cursor-pointer'>
                     <i className="fa-solid fa-share text-teal-400 outline-none" onClick={() => {
                         navigator.clipboard.writeText(window.location.href);
                         setCopied(true);
@@ -68,7 +68,7 @@ const Listing = () => {
                     }}/>
                 </div>
                 {copied && (
-                    <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-gray-900 text-teal-400 p-2'>
+                    <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-gray-800 text-teal-400 p-2'>
                         Link copied!
                     </p>
                 )}

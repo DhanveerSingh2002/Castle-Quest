@@ -54,7 +54,7 @@ const Profile = () => {
   
   const handleChange = (e) => {
     setFormData({
-     ...formData,
+    ...formData,
       [e.target.id]: e.target.value
     });
   }
