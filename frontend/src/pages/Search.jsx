@@ -177,7 +177,7 @@ const Search = () => {
             </form>
         </div>
         <div>
-            <h1 className="text-4xl text-teal-400 font-semibold sm:ml-4 sm:mt-4">Results:</h1>
+            <h1 className="text-4xl text-teal-400 font-semibold ml-4 mt-4">Results:</h1>
         </div>
     </div>
   )

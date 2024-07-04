@@ -31,8 +31,8 @@ export default function Header() {
       <div className='flex justify-between items-center max-w-7xl mx-auto'>
         <Link to="/">
             <h1 className='font-bold text-xl flex flex-wrap p-4'>
-                <span className='text-xl md:text-4xl text-teal-300'>Castle</span>
-                <span className='text-sm md:text-2xl text-teal-500'>Quest</span>
+                <span className='text-lg md:text-xl lg:text-4xl text-teal-300'>Castle</span>
+                <span className='text-sm md:text-md lg:text-2xl text-teal-500'>Quest</span>
             </h1>
         </Link>
         <form className='bg-gray-900 p-2 rounded-lg flex justify-between items-center text-teal-300 mr-11 sm:mr-0' onSubmit={handleSubmit}>
