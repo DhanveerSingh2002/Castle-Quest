@@ -202,7 +202,7 @@ const CreateListing = () => {
             <input placeholder='0' className='w-24 p-3 rounded-lg bg-[#080F21] border-teal focus:outline-none' type="number" id="regularPrice" min={500} max={100000000} onChange={handleChange} value={formData.regularPrice}/>
             <div className="flex flex-col items-center">
               <p className='text-[#9CA3AF]'>Regular Price</p>
-              <span className='text-xs text-[#9CA3AF]'>(₹/month)</span>
+              {formData.type === 'rent' && <span className='text-xs text-[#9CA3AF]'>(₹/month)</span>}
             </div>
           </div>
           {formData.offer &&
@@ -210,7 +210,7 @@ const CreateListing = () => {
             <input placeholder='0' className='w-24 p-3 rounded-lg bg-[#080F21] border-teal focus:outline-none' type="number" id="discountPrice" min={0} max={100000000} onChange={handleChange} value={formData.discountPrice}/>
             <div className="flex flex-col items-center">
               <p className='text-[#9CA3AF]'>Discounted Price</p>
-              <span className='text-xs text-[#9CA3AF]'>(₹/month)</span>
+              {formData.type === 'rent' && <span className='text-xs text-[#9CA3AF]'>(₹/month)</span>}
             </div>
           </div>
           }

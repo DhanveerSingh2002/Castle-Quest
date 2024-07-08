@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ListingCard from '../Components/ListingCard';
 
 const Search = () => {
 
@@ -116,7 +117,7 @@ const Search = () => {
     };
 
   return (
-    <div className='flex flex-col sm:flex-row text-teal-400 accent-teal-400 sm:max-w-xl'>
+    <div className='flex flex-col sm:flex-row text-teal-400 accent-teal-400'>
         <div className="p-4 pt-6 border-b-2 border-b-teal-600 sm:border-r-2 sm:border-r-teal-600 sm:border-b-0 sm:min-h-screen">
             <form onSubmit={handleSubmit}>
                 <div className='flex items-center gap-3 justify-center'>
@@ -176,8 +177,25 @@ const Search = () => {
                 <button className='bg-emerald-800 bg-opacity-50 p-2 text-xl w-full mt-4 sm:mt-6 rounded-md hover:scale-105 hover:bg-teal-400 hover:text-black transition-all duration-300'>Submit</button>
             </form>
         </div>
-        <div>
+        <div className='flex-1'>
             <h1 className="text-4xl text-teal-400 font-semibold ml-4 mt-4">Results:</h1>
+            <div className="p-7 flex flex-wrap gap-4">
+                {!loading && listings.length === 0 && (
+                    <p className="text-3xl text-red-600 text-center w-full">No listings found!!</p>
+                )}
+                {
+                    loading && (
+                        <div className="text-3xl text-teal-600 text-center w-full">
+                            Please Wait...
+                        </div>
+                    )
+                }
+                {
+                    !loading && listings && listings.map((listing) => (
+                        <ListingCard key={listing._id} listing={listing}/>
+                    ))
+                }
+            </div>
         </div>
     </div>
   )
