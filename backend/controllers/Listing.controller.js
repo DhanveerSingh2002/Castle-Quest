@@ -76,18 +76,18 @@ const getListing = async (req, res, next) => {
 
 const getListings = async (req, res, next) => {
     try {
-        const limit = parseInt(req.query.limit) || 9;
+        const limit = parseInt(req.query.limit) || 20;
         const startIndex = parseInt(req.query.startIndex) || 0;
         let offer = req.query.offer;
     
         if (offer === undefined || offer === 'false') {
-          offer = { $in: [false, true] };
+            offer = { $in: [false, true] };
         }
     
         let furnished = req.query.furnished;
     
         if (furnished === undefined || furnished === 'false') {
-          furnished = { $in: [false, true] };
+            furnished = { $in: [false, true] };
         }
     
         let parking = req.query.parking;
