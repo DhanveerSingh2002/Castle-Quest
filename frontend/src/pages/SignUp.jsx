@@ -50,7 +50,7 @@ const SignUp = () => {
         <input className='bg-[#080F22] focus:outline-none p-3 rounded-lg' type="email" id='email' placeholder='Email' onChange={handleChange} />
         <input className='bg-[#080F22] focus:outline-none rounded-lg p-3' type="password" id='password' placeholder='Password' onChange={handleChange} />
         <button disabled={loading} className='border-transparent bg-slate-800 rounded-lg hover:bg-teal-500 hover:text-black hover:scale-105 duration-300 transition-all ease-in-out bg-opacity-50 p-3'>{loading ? "Please Wait..." : "Register"}</button>
-        <div className='hidden sm:block'>
+        <div>
           <OAuth />
         </div>
       </form>
