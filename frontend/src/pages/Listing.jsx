@@ -119,18 +119,18 @@ const Listing = () => {
                             }
                         </li>
                     </ul>
-                    {
+                    {/* {
                         currentUser && listing.userRef !== currentUser._id && !contact && 
                         (
                             <button onClick={()=>setContact(true)} className='mt-4 bg-slate-700 bg-opacity-30 text-teal-400 active:bg-opacity-70 active:bg-teal-400 active:text-black sm:hover:text-black sm:hover:bg-teal-400 p-3 rounded-lg text-xl sm:hover:scale-105 transition-all duration-300'>Contact The Landlord</button>
                         )
-                    }
-                    {
+                    } */}
+                    {/* {
                         contact && 
                         (
                             <Contact listing={listing}/>
                         )
-                    }
+                    } */}
                 </div>
             </div>
         )}
