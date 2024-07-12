@@ -42,17 +42,17 @@ export default function Header() {
             </button>
         </form>
         <ul className='flex gap-2 sm:gap-5 md:gap-7 mr-2 sm:text-lg'>
-            <Link className='hidden sm:inline cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 opacity-80 hover:opacity-100' to="/">
+            <Link className='hidden sm:inline cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 opacity-80 hover:opacity-100 bg-[#080F22] p-2' to="/">
                 <li>Home</li>
             </Link>
-            <Link className='hidden sm:inline cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 opacity-80 hover:opacity-100' to="/about">
+            <Link className='hidden sm:inline cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 opacity-80 hover:opacity-100 bg-[#080F22] p-2' to="/about">
                 <li>About</li>
             </Link>
             <Link  to="/profile">
                 {
                   currentUser? 
-                  <img className='rounded-full h-7 w-7 object-cover mr-4 sm:mr-0' src={currentUser.avatar} alt='profile'/>:
-                  <li className='cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 opacity-80 hover:opacity-100 mr-2 sm:mr-0'>Sign in</li>
+                  <img className='rounded-full h-7 w-7 object-cover mr-4 sm:mr-0 bg-[#080F22] mt-2' src={currentUser.avatar} alt='profile'/>:
+                  <li className='cursor-pointer text-teal-300 transition-all duration-500 hover:scale-125 mr-2 sm:mr-0 bg-emerald-900 p-2 rounded-sm bg-opacity-20'>Sign in</li>
                 }
             </Link>
         </ul>

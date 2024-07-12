@@ -62,7 +62,7 @@ const UpdateListing = () => {
         setImageUploadError(false);
         setUploading(false);
       }).catch(() => {
-        setImageUploadError("Image size exceeded (max 2mb)");
+        setImageUploadError("Image size exceeded (max 2mb). Please Refresh the page and Try again with another picture.");
       });
     }
     else if(files.length == 0){
@@ -236,7 +236,7 @@ const UpdateListing = () => {
         <div className='flex flex-col flex-1 gap-4'>
           <p className="font-semibold text-teal-300 text-lg sm:ml-5">
             Images: 
-            <span className="font-light text-teal-500"> You can upload upto <b>6</b> images.</span>
+            <span className="font-light text-teal-500"> You can upload upto <b>6</b> images. Please make sure image size does not exceed <b>2MB</b>.</span>
           </p>
           <div className="flex justify-between p-4 text-teal-400">
             <label className='w-full mr-10 text-lg text-center cursor-pointer bg-[#080F21] text-[#9CA3A2] p-2 rounded-md hover:scale-110 transition-all duration-300' htmlFor="images">{files.length>0?`${files.length} file(s) selected`:"Browse Files"}</label>
